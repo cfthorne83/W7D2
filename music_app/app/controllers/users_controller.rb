@@ -18,12 +18,16 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
-        render :show
+        @user = User.find_by(id: params[:id])
+        if @user
+          render :show
+        else
+          redirect_to new_user_url
+        end
     end
 
     private
     def user_params
-        params.require(:user).permit(:email, :password_digest, :session_token)
+        params.require(:user).permit(:email, :password)
     end
 end

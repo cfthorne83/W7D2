@@ -1,12 +1,9 @@
 <h1>Users Show Page</h1>
 
-<%= render 'shared/errors' %>
 
-<form action="user_url(@user)" method="SHOW">
+
     <input type="hidden" 
            name="authenticity_token" 
            value="<%=form_authenticity_token%>">
 
     <p><%= @user.email%></p>
-
-</form>
